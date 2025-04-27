@@ -36,32 +36,7 @@ usermod -aG sudo yourusername
 
 ---
 
-## 4. Disable Root SSH Login
-Disabling root login ensures that attackers can’t try to brute-force the `root` account.
-
-1. Open the SSH configuration file:
-   
-   ```bash
-   sudo nano /etc/ssh/sshd_config
-   ```
-
-2. Find and modify the following line:
-   
-   ```bash
-   PermitRootLogin no
-   ```
-
-3. Save and exit the file (CTRL+X, Y, Enter).
-
-4. Restart SSH service:
-
-   ```bash
-   sudo systemctl restart sshd
-   ```
-
----
-
-## 5. Set Up SSH Key Authentication (Recommended)
+## 4. Set Up SSH Key Authentication (Recommended)
 SSH keys are much more secure than passwords. Here’s how you can set them up.
 
 1. On your local machine, generate an SSH key (if you don't have one already):
@@ -82,6 +57,31 @@ SSH keys are much more secure than passwords. Here’s how you can set them up.
 
    ```bash
    ssh yourusername@your-server-ip
+   ```
+
+---
+
+## 5. Disable Root SSH Login
+Disabling root login ensures that attackers can’t try to brute-force the `root` account.
+
+1. Open the SSH configuration file:
+   
+   ```bash
+   sudo nano /etc/ssh/sshd_config
+   ```
+
+2. Find and modify the following line:
+   
+   ```bash
+   PermitRootLogin no
+   ```
+
+3. Save and exit the file (CTRL+X, Y, Enter).
+
+4. Restart SSH service:
+
+   ```bash
+   sudo systemctl restart sshd
    ```
 
 ---
